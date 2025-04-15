@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 8000;
 
 // CORS ayarları
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:8000', 'http://localhost:3002', 'http://localhost:3003'],
+  origin: ['https://x-ein.com', 'https://www.x-ein.com', 'https://api.x-ein.com'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
