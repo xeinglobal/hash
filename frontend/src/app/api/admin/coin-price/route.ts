@@ -14,7 +14,8 @@ export async function GET(req: NextRequest) {
     console.log('Backend API çağrısı yapılıyor');
     
     // Admin routes altındaki coin-price endpoint'ini kullan
-    const apiUrl = 'http://localhost:8000/api/admin/coin-price';
+    const backendBaseUrl = (process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || 'http://localhost:8000').replace(/\/$/, '');
+    const apiUrl = `${backendBaseUrl}/api/admin/coin-price`;
     
     console.log('API URL:', apiUrl);
     

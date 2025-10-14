@@ -20,7 +20,8 @@ export async function GET(req: NextRequest) {
     console.log('Backend API çağrısı yapılıyor');
     
     // Admin routes altındaki coin-price/history endpoint'ini kullan
-    const apiUrl = `http://localhost:8000/api/admin/coin-price/history?limit=${limit}`;
+    const backendBaseUrl = (process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || 'http://localhost:8000').replace(/\/$/, '');
+    const apiUrl = `${backendBaseUrl}/api/admin/coin-price/history?limit=${limit}`;
     
     console.log('API URL:', apiUrl);
     

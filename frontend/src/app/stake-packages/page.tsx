@@ -8,6 +8,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import Image from 'next/image';
+import { getCurrentCoinPrice } from '@/services/coinService';
 
 export default function StakePackages() {
   const { user } = useAuth();
@@ -15,23 +16,29 @@ export default function StakePackages() {
   const [packages, setPackages] = useState<StakePackage[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [coinPrice, setCoinPrice] = useState<number>(0);
 
   useEffect(() => {
-    const fetchPackages = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await StakeService.getAllStakePackages();
-        setPackages(data);
+        const [packagesData, priceData] = await Promise.all([
+          StakeService.getAllStakePackages(),
+          getCurrentCoinPrice()
+        ]);
+        
+        setPackages(packagesData);
+        setCoinPrice(priceData.pricePerUnit);
         setError(null);
       } catch (err) {
-        console.error('Error loading packages:', err);
-        setError('There was a problem loading packages. Please try again later.');
+        console.error('Error loading data:', err);
+        setError('There was a problem loading data. Please try again later.');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPackages();
+    fetchData();
   }, []);
 
   const handlePackageClick = (id: string) => {
@@ -137,7 +144,10 @@ export default function StakePackages() {
                       </div>
                       
                       <h2 className="text-3xl font-bold text-center text-white mb-2 mt-4">
-                        {pkg.priceInCoins.toLocaleString()} Coins
+                        {pkg.priceInCoins.toLocaleString()} Coins 
+                        <span className="block text-lg text-teal-400 mt-1">
+                          ({(pkg.priceInCoins * coinPrice).toLocaleString()} $)
+                        </span>
                       </h2>
                       
                       <div className="mt-8 space-y-3">
