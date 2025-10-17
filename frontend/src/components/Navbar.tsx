@@ -81,6 +81,40 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
+            {/* Social Media Icons - Always visible */}
+            <div className="flex space-x-2 mr-4">
+              <a href="https://web3.binance.com/en/token/bsc/0x31c38e4ebf378b3292e15871c7ed8b86537cd564"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Binance"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-md border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition"
+                title="Binance"
+              >
+                <img
+                  src="/images/binance-logo.svg"
+                  alt="Binance Logo"
+                  className="w-5 h-5 object-contain"
+                  loading="lazy"
+                />
+              </a>
+              <a href="https://t.me/+A9xCNCQDbzU0YzE0"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram Kanalı"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-md border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition"
+                title="Telegram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M9.036 14.534 8.88 18.3c.34 0 .49-.146.667-.32l1.6-1.54 3.314 2.43c.607.334 1.04.16 1.207-.56l2.187-10.25v-.001c.2-.934-.34-1.3-.94-1.073L4.56 9.64c-.9.35-.887.855-.153 1.084l3.1.965 7.216-4.55c.34-.206.65-.092.395.114l-6.082 5.28z" />
+                </svg>
+              </a>
+            </div>
+
+            {/* User Authentication Section */}
             {isAuthenticated ? (
               <div className="flex space-x-4 items-center">
                 {renderNotificationDropdown()}
@@ -98,35 +132,6 @@ export const Navbar: React.FC = () => {
               </div>
             ) : (
               <div className="flex space-x-4">
-              <a href="https://web3.binance.com/en/token/bsc/0x31c38e4ebf378b3292e15871c7ed8b86537cd564"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Binance"
-                className="inline-flex items-center justify-center w-9 h-9 rounded-md border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition"
-                title="Binance"
-              >
-                <img
-                  src="/images/binance-logo.svg"
-                  alt="Binance Logo"
-                  className="w-5 h-5 object-contain"
-                  loading="lazy"
-                />
-              </a>
-                <a href="https://t.me/+A9xCNCQDbzU0YzE0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Telegram Kanalı"
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-md border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition"
-                  title="Telegram"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    className="w-5 h-5 fill-current"
-                  >
-                    <path d="M9.036 14.534 8.88 18.3c.34 0 .49-.146.667-.32l1.6-1.54 3.314 2.43c.607.334 1.04.16 1.207-.56l2.187-10.25v-.001c.2-.934-.34-1.3-.94-1.073L4.56 9.64c-.9.35-.887.855-.153 1.084l3.1.965 7.216-4.55c.34-.206.65-.092.395.114l-6.082 5.28z" />
-                  </svg>
-                </a>
                 <Link
                   href="/login"
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -143,16 +148,46 @@ export const Navbar: React.FC = () => {
             )}
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
-          {isAuthenticated && (
-                  <div className="block px-3 py-2 border-l-4 border-transparent">
-                    <div className="flex items-center">
-                      <div className="flex-grow">
-                        <NotificationDropdown />
-                      </div>
-                      
-                    </div>
-                  </div>
-                )}
+            {/* Mobile Social Media Icons */}
+            <div className="flex space-x-2 mr-3">
+              <a href="https://web3.binance.com/en/token/bsc/0x31c38e4ebf378b3292e15871c7ed8b86537cd564"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Binance"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition"
+                title="Binance"
+              >
+                <img
+                  src="/images/binance-logo.svg"
+                  alt="Binance Logo"
+                  className="w-4 h-4 object-contain"
+                  loading="lazy"
+                />
+              </a>
+              <a href="https://t.me/+A9xCNCQDbzU0YzE0"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram Kanalı"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition"
+                title="Telegram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 fill-current"
+                >
+                  <path d="M9.036 14.534 8.88 18.3c.34 0 .49-.146.667-.32l1.6-1.54 3.314 2.43c.607.334 1.04.16 1.207-.56l2.187-10.25v-.001c.2-.934-.34-1.3-.94-1.073L4.56 9.64c-.9.35-.887.855-.153 1.084l3.1.965 7.216-4.55c.34-.206.65-.092.395.114l-6.082 5.28z" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Mobile Notification Dropdown */}
+            {isAuthenticated && (
+              <div className="block px-2 py-1 mr-2">
+                <NotificationDropdown />
+              </div>
+            )}
+            
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
