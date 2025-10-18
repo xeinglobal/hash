@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
                   loading="lazy"
                 />
               </a>
-              <a href="https://t.me/+A9xCNCQDbzU0YzE0"
+              <a href="https://t.me/xeinglobal"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Telegram Kanalı"
@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
                   loading="lazy"
                 />
               </a>
-              <a href="https://t.me/+A9xCNCQDbzU0YzE0"
+              <a href="https://t.me/xeinglobal"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Telegram Kanalı"
